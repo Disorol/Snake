@@ -102,11 +102,11 @@ void Logic() { // game logic
         x--;
         break;
     case RIGHT:
-        break;
         x++;
-    case UP:
         break;
+    case UP:
         y--;
+        break;
     case DOWN:
         y++;
         break;
