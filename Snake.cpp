@@ -12,7 +12,7 @@ int nTail;
 enum eDirection {STOP = 0, LEFT, RIGHT, UP, DOWN};
 eDirection dir;
 
-void Setup() {
+void Setup() { // working with variables
     gameOver = false;
     dir = STOP;
     x = width / 2 - 1;
@@ -22,7 +22,7 @@ void Setup() {
     score = 0;
 }
 
-void Draw() {
+void Draw() { // the output symbols
     system("cls");
     for (int i = 0; i < width + 1; i++) {
         cout << "#";
@@ -59,9 +59,9 @@ void Draw() {
     cout << "Score: " << score << endl;
 }
 
-void Input() {
-    if (_kbhit()) {
-        switch (_getch ())
+void Input() { // keyboard input
+    if (_kbhit()) { // returns true if any key is pressed on the keyboard
+        switch (_getch ()) // reading a single character from the keyboard
         {
         case 'a':
             dir = LEFT;
@@ -82,7 +82,7 @@ void Input() {
     }
 }
 
-void Logic() {
+void Logic() { // game logic
     int prev_x = tail_x[0];
     int prev_y = tail_y[0];
     int prev_2_x, prev_2_y;
@@ -112,15 +112,15 @@ void Logic() {
         break;
     }
 
-    //if (x > width || x < 0 || y > height || y < 0) 
+    //if (x > width || x < 0 || y > height || y < 0) // end when hit by a wall
     //  gameOver = true;
 
-    if (x >= width - 1)
+    if (x >= width - 1) // passage through the wall by x
         x = 0;
     else if (x < 0)
         x = width - 2;
 
-    if (y >= height)
+    if (y >= height) // passage through the wall by y
         y = 0;
     else if (y < 0)
         y = height - 1;
